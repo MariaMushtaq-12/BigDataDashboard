@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+
 import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
@@ -17,36 +18,31 @@ import 'ol/ol.css';
 export class MapComponent implements OnInit {
   private olMap: Map | null = null;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngOnInit(): void {
-    setTimeout(() => {
-      this.initializeMap();
-    }, 100);
+    if (isPlatformBrowser(this.platformId)) {
+      console.log('Initializing map on the browser platform.',this.platformId);
+      setTimeout(() => this.initializeMap(), 0);
+    }
   }
 
   private initializeMap(): void {
-    if (this.olMap) {
-      return;
-    }
+    if (this.olMap) return;
 
-    try {
-      this.olMap = new Map({
-        target: 'map',
-        layers: [
-          new TileLayer({
-            source: new OSM()
-          })
-        ],
-        view: new View({
-          center: fromLonLat([69, 30]),
-          zoom: 5
+    this.olMap = new Map({
+      target: 'map',
+      layers: [
+        new TileLayer({
+          source: new OSM()
         })
-      });
-      
-      if (this.olMap) {
-        this.olMap.updateSize();
-      }
-    } catch (error) {
-      console.error('Error initializing map:', error);
-    }
+      ],
+      view: new View({
+        center: fromLonLat([69, 30]),
+        zoom: 5
+      })
+    });
+
+    this.olMap.updateSize();
   }
 }
