@@ -1,1 +1,73 @@
-<p>footer works!</p>
+<footer class="footer">
+    
+  <!-- Dropdown Toggle Button -->
+  <!-- <div class="dropdown-toggle-container">
+    <button class="dropdown-toggle" (click)="toggleDropdown()" [class.open]="isDropdownOpen">
+      <span class="toggle-text">{{ isDropdownOpen ? 'Hide Details' : 'Show Details' }}</span>
+           
+      <span class="toggle-icon">▼</span>
+      <span class="toggle-icon">▲</span>
+    </button>
+  </div> -->
+
+  <!-- Dropdown Content -->
+  <div class="dropdown-content" [class.open]="isDropdownOpen">
+    <div class="footer-container">
+      <!-- Left Section - About -->
+      <div class="footer-section-about footer-about">
+        <h4>About</h4>
+        <p>BigData Dashboard - Advanced spatial analytics platform for Earth observation and geospatial analysis.</p>
+      </div>
+
+      <!-- Center Section - Stats -->
+      <div class="footer-section footer-stats">
+        <div class="stat-item">
+          <span class="stat-value">847</span>
+          <span class="stat-label">Data Points</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">12</span>
+          <span class="stat-label">Datasets</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">5.2M</span>
+          <span class="stat-label">Records</span>
+        </div>
+      </div>
+
+      <!-- Right Section - Links & Info -->
+      <div class="footer-section footer-links">
+        <div class="footer-column">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">API</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h5>Connect</h5>
+          <ul>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="footer-row">
+    <p>&copy; 2024 BigData Dashboard. All rights reserved. | Last Update: <span class="update-time">Just now</span></p>
+    <button class="dropdown-toggle" (click)="toggleDropdown()" [class.open]="isDropdownOpen">
+        <!-- <span class="toggle-text">{{ isDropdownOpen ? 'Hide Details' : 'Show Details' }}</span> -->
+            
+        <!-- <span class="toggle-icon">▼</span> -->
+        <span class="toggle-icon">▲</span>
+    </button>  
+    </div>
+</div>
+</footer>
+

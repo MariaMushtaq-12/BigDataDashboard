@@ -4,10 +4,10 @@ import {Header} from '../header/header';
 import {Sidebar} from '../sidebar/sidebar';
 import {RouterModule} from '@angular/router';
 import { Footer } from '../footer/footer';
-import { Map } from "../map/map";
+import { MapComponent } from "../map/map";
 @Component({
   selector: 'app-shell',
-  imports: [Header, Sidebar, RouterModule, Footer, CommonModule, Map],
+  imports: [Header, Sidebar, RouterModule, Footer, CommonModule,MapComponent],
   templateUrl: './shell.html',
   styleUrl: './shell.css',
 })
