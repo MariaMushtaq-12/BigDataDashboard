@@ -1,20 +1,10 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-map',
-//   imports: [],
-//   templateUrl: './map.html',
-//   styleUrl: './map.css',
-// })
-// export class Map {
-
-// }
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
+import { fromLonLat } from 'ol/proj';
 import 'ol/ol.css';
 
 @Component({
@@ -47,8 +37,8 @@ export class MapComponent implements OnInit {
           })
         ],
         view: new View({
-          center: [0, 0],
-          zoom: 2
+          center: fromLonLat([69, 30]),
+          zoom: 5
         })
       });
       
