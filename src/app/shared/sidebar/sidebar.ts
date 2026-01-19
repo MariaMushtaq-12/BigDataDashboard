@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './sidebar.css',
 })
 export class Sidebar {
+  @Output() geeRequested = new EventEmitter<void>();
 
+    loadGEE() {
+      this.geeRequested.emit();
+    }
 }

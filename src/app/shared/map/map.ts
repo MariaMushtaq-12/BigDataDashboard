@@ -7,6 +7,7 @@ import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import { fromLonLat } from 'ol/proj';
 import 'ol/ol.css';
+import XYZ from 'ol/source/XYZ';
 
 @Component({
   selector: 'app-map',
@@ -44,5 +45,17 @@ export class MapComponent implements OnInit {
     });
 
     this.olMap.updateSize();
+  }
+  
+  addGEELayer(tileUrl: string) {
+    if (!this.olMap) return;
+
+    const geeLayer = new TileLayer({
+      source: new XYZ({
+        url: tileUrl
+      })
+    });
+
+    this.olMap.addLayer(geeLayer);
   }
 }
