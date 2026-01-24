@@ -5,25 +5,6 @@
   width: 100%;
 }
 
-.footer {
-  /* background: linear-gradient(135deg, var(--primary-dark) 0%, rgba(15, 23, 42, 0.95) 100%); */
-  /* color: rgba(255, 255, 255, 0.9); */
-  /* border-top: 2px solid var(--secondary-light); */
-}
-
-/* Dropdown Toggle Button */
-/* .dropdown-toggle-container {
-    
-  display: flex;
-  justify-content: right;
-  padding: var(--spacing-md) 0;
-  background-color: rgba(0, 0, 0, 0);
-  border-bottom: 1px solid var(--secondary-light);
-
-} */
-/* .dropdown-toggle-container .button{
-     background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(15, 23, 42, 0.98) 100%);
-} */
 .footer-bottom .footer-row{
     display: flex;
     flex-direction: row;
@@ -229,8 +210,8 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   background: linear-gradient(135deg, var(--primary-dark) 0%, rgba(15, 23, 42, 0.95) 100%);
   color: rgba(255, 255, 255, 0.9);
-  padding: var(--spacing-lg);
-  max-width: 1400px;
+  padding: var(--spacing-md);
+  max-width: full;
   margin: 0 auto;
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.6);
@@ -244,7 +225,7 @@
 
 .footer-bottom .dropdown-toggle {
   position: absolute;
-  right: var(--spacing-lg);
+  right: var(--spacing-md);
   bottom: 1px;
 }
 
