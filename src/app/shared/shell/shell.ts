@@ -14,50 +14,69 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './shell.html',
   styleUrl: './shell.css',
 })
-export class Shell {
+// export class Shell {
 
-    @ViewChild('mapComp') mapComp!: MapComponent;
+//     @ViewChild('mapComp') mapComp!: MapComponent;
 
-    constructor(private http: HttpClient) {}
+//     constructor(private http: HttpClient) {}
 
 //     requestGEELayer() {
+//       if (!this.mapComp) return;
+
+//       // Optionally remove DataCube before adding GEE
+//       this.mapComp.removeDataCubeLayer();
+
 //       this.http.get<any>('http://localhost:1234/gee-layer')
 //         .subscribe(res => {
 //           this.mapComp.addGEELayer(res.tileUrl);
 //         });
 //     }
 
-
 //     requestDataCubeLayer() {
-//   this.http.get<any>('http://localhost:1234/datacube-layer')
-//     .subscribe(res => {
-//       console.log('Datacube data received:', res);
-//       // TODO: Convert response to OpenLayers layer or visualize as needed
-//       this.mapComp.addDataCubeLayer(res); 
-//     }, err => console.error('Datacube request error:', err));
+//       if (!this.mapComp) return;
+
+//       // Optionally remove GEE before adding DataCube
+//       this.mapComp.removeGEELayer();
+
+//       this.http.get<any>('http://localhost:1234/datacube-layer')
+//         .subscribe(res => {
+//           this.mapComp.addDataCubeLayer(res);
+//         });
+//     }
+
 // }
-    requestGEELayer() {
+export class Shell {
+
+  @ViewChild('mapComp') mapComp!: MapComponent;
+
+  showMap = true;
+  showLexcube = false;
+
+  constructor(private http: HttpClient) {}
+
+  // When GEE clicked
+  requestGEELayer() {
+    this.showLexcube = false;
+    this.showMap = true;
+
+    setTimeout(() => {
       if (!this.mapComp) return;
 
-      // Optionally remove DataCube before adding GEE
       this.mapComp.removeDataCubeLayer();
 
       this.http.get<any>('http://localhost:1234/gee-layer')
         .subscribe(res => {
           this.mapComp.addGEELayer(res.tileUrl);
         });
-    }
+    });
+  }
 
-    requestDataCubeLayer() {
-      if (!this.mapComp) return;
+  // When DataCube clicked
+  requestDataCubeLayer() {
+    // Hide OpenLayers map
+    this.showMap = false;
 
-      // Optionally remove GEE before adding DataCube
-      this.mapComp.removeGEELayer();
-
-      this.http.get<any>('http://localhost:1234/datacube-layer')
-        .subscribe(res => {
-          this.mapComp.addDataCubeLayer(res);
-        });
-    }
-
+    // Show Lexcube iframe
+    this.showLexcube = true;
+  }
 }

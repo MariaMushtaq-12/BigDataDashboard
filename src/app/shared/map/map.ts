@@ -17,57 +17,6 @@ import XYZ from 'ol/source/XYZ';
   styleUrl: './map.css'
 })
 export class MapComponent implements OnInit {
-  // private olMap: Map | null = null;
-
-  // constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
-
-  // ngOnInit(): void {
-  //   if (isPlatformBrowser(this.platformId)) {
-  //     console.log('Initializing map on the browser platform.',this.platformId);
-  //     setTimeout(() => this.initializeMap(), 0);
-  //   }
-  // }
-
-  // private initializeMap(): void {
-  //   if (this.olMap) return;
-
-  //   this.olMap = new Map({
-  //     target: 'map',
-  //     layers: [
-  //       new TileLayer({
-  //         source: new OSM()
-  //       })
-  //     ],
-  //     view: new View({
-  //       center: fromLonLat([69, 30]),
-  //       zoom: 5
-  //     })
-  //   });
-
-  //   this.olMap.updateSize();
-  // }
-  
-  // addGEELayer(tileUrl: string) {
-  //   if (!this.olMap) return;
-
-  //   const geeLayer = new TileLayer({
-  //     source: new XYZ({
-  //       url: tileUrl
-  //     })
-  //   });
-
-  //   this.olMap.addLayer(geeLayer);
-  // }
-  // addDataCubeLayer(data: any) {
-  //   if (!this.olMap) return; 
-  //   const geeLayer = new TileLayer({
-  //     source: new XYZ({
-  //       url: data.tileUrl
-  //     })
-  //   });
-
-  //   this.olMap.addLayer(geeLayer);
-  //  }
     private olMap: Map | null = null;
     private geeLayer: TileLayer | null = null;
     private dataCubeLayer: TileLayer | null = null;

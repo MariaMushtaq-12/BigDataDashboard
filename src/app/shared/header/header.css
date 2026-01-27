@@ -40,6 +40,14 @@
   transform: scale(1.02);
 }
 
+.additional-logo {
+height: 40px;        /* Fix the height */
+  width: auto;          /* Let the width adjust itself to keep the ratio */
+  max-width: 120px;     /* Optional: prevents one logo from being way too wide */
+  object-fit: contain;  /* Ensures the logo isn't cropped or squashed */
+  background-color: white; /* Optional: adds a consistent background if logos are transparent */
+  padding: 2px;
+}
 .logo-icon {
   font-size: 2.5rem;
   display: flex;
