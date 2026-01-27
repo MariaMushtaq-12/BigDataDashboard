@@ -1,7 +1,9 @@
 <app-header></app-header>
 
 <div class="main-layout">
-  <app-sidebar (geeRequested)="requestGEELayer()"></app-sidebar>
+  <app-sidebar (geeRequested)="requestGEELayer()"
+   (datacubeRequested)="requestDataCubeLayer()"
+  ></app-sidebar>
 
   <div class="content">
     

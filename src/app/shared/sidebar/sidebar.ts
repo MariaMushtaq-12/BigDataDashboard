@@ -9,8 +9,29 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class Sidebar {
   @Output() geeRequested = new EventEmitter<void>();
+  @Output() datacubeRequested = new EventEmitter<void>();
+ geeActive = false;
 
     loadGEE() {
+       this.dataCubeActive = false;
+       this.geeActive = !this.geeActive;
       this.geeRequested.emit();
+    }
+
+      removeGEE() {
+    this.geeActive = false;
+    
+  }
+
+  dataCubeActive = false;
+
+    loadDataCube() {
+      this.dataCubeActive = !this.dataCubeActive;
+      this.datacubeRequested.emit();
+       this.geeActive = false;
+    } 
+    
+    removeDataCube() {
+      this.dataCubeActive = false;
     }
 }

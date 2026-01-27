@@ -20,10 +20,44 @@ export class Shell {
 
     constructor(private http: HttpClient) {}
 
+//     requestGEELayer() {
+//       this.http.get<any>('http://localhost:1234/gee-layer')
+//         .subscribe(res => {
+//           this.mapComp.addGEELayer(res.tileUrl);
+//         });
+//     }
+
+
+//     requestDataCubeLayer() {
+//   this.http.get<any>('http://localhost:1234/datacube-layer')
+//     .subscribe(res => {
+//       console.log('Datacube data received:', res);
+//       // TODO: Convert response to OpenLayers layer or visualize as needed
+//       this.mapComp.addDataCubeLayer(res); 
+//     }, err => console.error('Datacube request error:', err));
+// }
     requestGEELayer() {
+      if (!this.mapComp) return;
+
+      // Optionally remove DataCube before adding GEE
+      this.mapComp.removeDataCubeLayer();
+
       this.http.get<any>('http://localhost:1234/gee-layer')
         .subscribe(res => {
           this.mapComp.addGEELayer(res.tileUrl);
         });
     }
+
+    requestDataCubeLayer() {
+      if (!this.mapComp) return;
+
+      // Optionally remove GEE before adding DataCube
+      this.mapComp.removeGEELayer();
+
+      this.http.get<any>('http://localhost:1234/datacube-layer')
+        .subscribe(res => {
+          this.mapComp.addDataCubeLayer(res);
+        });
+    }
+
 }
