@@ -14,37 +14,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './shell.html',
   styleUrl: './shell.css',
 })
-// export class Shell {
 
-//     @ViewChild('mapComp') mapComp!: MapComponent;
-
-//     constructor(private http: HttpClient) {}
-
-//     requestGEELayer() {
-//       if (!this.mapComp) return;
-
-//       // Optionally remove DataCube before adding GEE
-//       this.mapComp.removeDataCubeLayer();
-
-//       this.http.get<any>('http://localhost:1234/gee-layer')
-//         .subscribe(res => {
-//           this.mapComp.addGEELayer(res.tileUrl);
-//         });
-//     }
-
-//     requestDataCubeLayer() {
-//       if (!this.mapComp) return;
-
-//       // Optionally remove GEE before adding DataCube
-//       this.mapComp.removeGEELayer();
-
-//       this.http.get<any>('http://localhost:1234/datacube-layer')
-//         .subscribe(res => {
-//           this.mapComp.addDataCubeLayer(res);
-//         });
-//     }
-
-// }
 export class Shell {
 
   @ViewChild('mapComp') mapComp!: MapComponent;
@@ -65,6 +35,7 @@ export class Shell {
       this.mapComp.removeDataCubeLayer();
 
       this.http.get<any>('http://localhost:1234/gee-layer')
+      // this.http.get<any>('https://backend-bigdatadashboard.onrender.com')
         .subscribe(res => {
           this.mapComp.addGEELayer(res.tileUrl);
         });
